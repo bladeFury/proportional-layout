@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.wukongtv.proportionallayout.library.PLayoutInflater;
+import android.view.PLayoutInflater;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -13,8 +14,8 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        PLayoutInflater inflater = PLayoutInflater.from(this);
+        View v = PLayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        setContentView(v);
     }
 
 
