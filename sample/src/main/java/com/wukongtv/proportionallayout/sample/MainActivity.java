@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.view.PLayoutInflater;
+import android.view.PPLayoutInflater;
 import android.view.View;
 
 
@@ -14,8 +15,9 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View v = PLayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        View v = PPLayoutInflater.from(this).inflate(R.layout.activity_main, null);
         setContentView(v);
+        //setContentView(R.layout.activity_main);
     }
 
 
