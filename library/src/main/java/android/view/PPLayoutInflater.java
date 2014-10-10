@@ -24,7 +24,6 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.util.Xml;
@@ -273,9 +272,6 @@ public class PPLayoutInflater {
         }
     }
 
-    /**
-     * @hide for use by framework
-     */
     public void setPrivateFactory(Factory2 factory) {
         mPrivateFactory = factory;
     }
@@ -427,12 +423,7 @@ public class PPLayoutInflater {
                     rInflate(parser, root, attrs, false);
                 } else {
                     // Temp is the root view that was found in the xml
-                    View temp;
-                    if (TAG_1995.equals(name)) {
-                        temp = new BlinkLayout(mContext, attrs);
-                    } else {
-                        temp = createViewFromTag(root, name, attrs);
-                    }
+                    View temp = createViewFromTag(root, name, attrs);
 
                     ViewGroup.LayoutParams params = null;
 
@@ -724,12 +715,6 @@ public class PPLayoutInflater {
                 parseInclude(parser, parent, attrs);
             } else if (TAG_MERGE.equals(name)) {
                 throw new InflateException("<merge /> must be the root element");
-            } else if (TAG_1995.equals(name)) {
-                final View view = new BlinkLayout(mContext, attrs);
-                final ViewGroup viewGroup = (ViewGroup) parent;
-                final ViewGroup.LayoutParams params = viewGroup.generateLayoutParams(attrs);
-                rInflate(parser, view, attrs, true);
-                viewGroup.addView(view, params);
             } else {
                 final View view = createViewFromTag(parent, name, attrs);
                 final ViewGroup viewGroup = (ViewGroup) parent;
@@ -821,11 +806,13 @@ public class PPLayoutInflater {
                         // Attempt to override the included layout's android:id with the
                         // one set on the <include /> tag itself.
                         //:TODO com.android.internal.R
+//                        int View_id = Resources.getSystem().getIdentifier("View_id", "styleable", "android");
+//                        int View_visibility = Resources.getSystem().getIdentifier("View_visibility", "styleable", "android");
 //                        TypedArray a = mContext.obtainStyledAttributes(attrs,
 //                                com.android.internal.R.styleable.View, 0, 0);
-//                        int id = a.getResourceId(com.android.internal.R.styleable.View_id, View.NO_ID);
+//                        int id = a.getResourceId(View_id, View.NO_ID);
 //                        // While we're at it, let's try to override android:visibility.
-//                        int visibility = a.getInt(com.android.internal.R.styleable.View_visibility, -1);
+//                        int visibility = a.getInt(View_visibility, -1);
 //                        a.recycle();
 //
 //                        if (id != View.NO_ID) {
@@ -858,65 +845,6 @@ public class PPLayoutInflater {
         while (((type = parser.next()) != XmlPullParser.END_TAG ||
                 parser.getDepth() > currentDepth) && type != XmlPullParser.END_DOCUMENT) {
             // Empty
-        }
-    }
-
-    private static class BlinkLayout extends FrameLayout {
-        private static final int MESSAGE_BLINK = 0x42;
-        private static final int BLINK_DELAY = 500;
-
-        private boolean mBlink;
-        private boolean mBlinkState;
-        private final Handler mHandler;
-
-        public BlinkLayout(Context context, AttributeSet attrs) {
-            super(context, attrs);
-            mHandler = new Handler(new Handler.Callback() {
-                @Override
-                public boolean handleMessage(Message msg) {
-                    if (msg.what == MESSAGE_BLINK) {
-                        if (mBlink) {
-                            mBlinkState = !mBlinkState;
-                            makeBlink();
-                        }
-                        invalidate();
-                        return true;
-                    }
-                    return false;
-                }
-            });
-        }
-
-        private void makeBlink() {
-            Message message = mHandler.obtainMessage(MESSAGE_BLINK);
-            mHandler.sendMessageDelayed(message, BLINK_DELAY);
-        }
-
-        @Override
-        protected void onAttachedToWindow() {
-            super.onAttachedToWindow();
-
-            mBlink = true;
-            mBlinkState = true;
-
-            makeBlink();
-        }
-
-        @Override
-        protected void onDetachedFromWindow() {
-            super.onDetachedFromWindow();
-
-            mBlink = false;
-            mBlinkState = true;
-
-            mHandler.removeMessages(MESSAGE_BLINK);
-        }
-
-        @Override
-        protected void dispatchDraw(Canvas canvas) {
-            if (mBlinkState) {
-                super.dispatchDraw(canvas);
-            }
         }
     }
 }
