@@ -16,10 +16,7 @@
 
 package android.view;
 
-import android.graphics.Canvas;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.FrameLayout;
+import android.util.Log;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -95,7 +92,6 @@ public class PPLayoutInflater {
 
     private static final String TAG_MERGE = "merge";
     private static final String TAG_INCLUDE = "include";
-    private static final String TAG_1995 = "blink";
     private static final String TAG_REQUEST_FOCUS = "requestFocus";
 
 
@@ -712,6 +708,8 @@ public class PPLayoutInflater {
                 if (parser.getDepth() == 0) {
                     throw new InflateException("<include /> cannot be the root element");
                 }
+                // :TODO remove this warning when <include /> problem is solved
+                Log.w("PPLayoutInflater", "<include /> id is not able to override, use it at your own risk");
                 parseInclude(parser, parent, attrs);
             } else if (TAG_MERGE.equals(name)) {
                 throw new InflateException("<merge /> must be the root element");

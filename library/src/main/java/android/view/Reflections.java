@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
+ * Some Reflections
  * Created by zhangge on 14-10-4.
  */
 public class Reflections {
