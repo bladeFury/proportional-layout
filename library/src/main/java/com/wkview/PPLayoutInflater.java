@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.view;
+package com.wkview;
 
 import android.util.Log;
 import org.xmlpull.v1.XmlPullParser;
@@ -28,9 +28,15 @@ import android.util.Xml;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
+
+import android.view.InflateException;
+import android.view.LayoutInflater;
 import android.view.LayoutInflater.Factory;
 import android.view.LayoutInflater.Factory2;
 import android.view.LayoutInflater.Filter;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
 
 
 /**
@@ -178,7 +184,7 @@ public class PPLayoutInflater {
     /**
      * Create a copy of the existing LayoutInflater object, with the copy
      * pointing to a different Context than the original.  This is used by
-     * {@link ContextThemeWrapper} to create a new LayoutInflater to go along
+     * {@link android.view.ContextThemeWrapper} to create a new LayoutInflater to go along
      * with the new Context theme.
      *
      * @param newContext The new Context to associate with the new LayoutInflater.
@@ -282,8 +288,8 @@ public class PPLayoutInflater {
 
     /**
      * Sets the {@link Filter} to by this LayoutInflater. If a view is attempted to be inflated
-     * which is not allowed by the {@link Filter}, the {@link #inflate(int, ViewGroup)} call will
-     * throw an {@link InflateException}. This filter will replace any previous filter set on this
+     * which is not allowed by the {@link Filter}, the {@link #inflate(int, android.view.ViewGroup)} call will
+     * throw an {@link android.view.InflateException}. This filter will replace any previous filter set on this
      * LayoutInflater.
      *
      * @param filter The Filter which restricts the set of Views that are allowed to be inflated.
@@ -298,7 +304,7 @@ public class PPLayoutInflater {
 
     /**
      * Inflate a new view hierarchy from the specified xml resource. Throws
-     * {@link InflateException} if there is an error.
+     * {@link android.view.InflateException} if there is an error.
      *
      * @param resource ID for an XML layout resource to load (e.g.,
      *        <code>R.layout.main_page</code>)
@@ -313,7 +319,7 @@ public class PPLayoutInflater {
 
     /**
      * Inflate a new view hierarchy from the specified xml node. Throws
-     * {@link InflateException} if there is an error. *
+     * {@link android.view.InflateException} if there is an error. *
      * <p>
      * <em><strong>Important</strong></em>&nbsp;&nbsp;&nbsp;For performance
      * reasons, view inflation relies heavily on pre-processing of XML files
@@ -333,7 +339,7 @@ public class PPLayoutInflater {
 
     /**
      * Inflate a new view hierarchy from the specified xml resource. Throws
-     * {@link InflateException} if there is an error.
+     * {@link android.view.InflateException} if there is an error.
      *
      * @param resource ID for an XML layout resource to load (e.g.,
      *        <code>R.layout.main_page</code>)
@@ -360,7 +366,7 @@ public class PPLayoutInflater {
 
     /**
      * Inflate a new view hierarchy from the specified XML node. Throws
-     * {@link InflateException} if there is an error.
+     * {@link android.view.InflateException} if there is an error.
      * <p>
      * <em><strong>Important</strong></em>&nbsp;&nbsp;&nbsp;For performance
      * reasons, view inflation relies heavily on pre-processing of XML files

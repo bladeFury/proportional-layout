@@ -1,4 +1,7 @@
-package android.view;
+package com.wkview;
+
+import android.view.LayoutInflater;
+import android.view.View;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
