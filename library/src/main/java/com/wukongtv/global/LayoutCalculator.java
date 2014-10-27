@@ -1,4 +1,4 @@
-package com.global;
+package com.wukongtv.global;
 
 import android.os.Build;
 import android.view.View;

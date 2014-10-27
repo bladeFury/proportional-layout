@@ -1,16 +1,15 @@
-package com.wkview;
+package com.wukongtv.wkview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 
-import com.global.LayoutCalculator;
+import com.wukongtv.global.LayoutCalculator;
 
 /**
  * ViewGroup
  * Created by zhangge on 14-10-22.
  */
-public abstract class ViewGroup extends ViewGroup {
+public abstract class ViewGroup extends android.view.ViewGroup {
 
     public ViewGroup(Context context) {
         super(context);

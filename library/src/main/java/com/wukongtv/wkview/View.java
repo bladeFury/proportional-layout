@@ -1,16 +1,16 @@
-package com.wkview;
+package com.wukongtv.wkview;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.global.LayoutCalculator;
+import com.wukongtv.global.LayoutCalculator;
 
 
 /**
  * View
  * Created by zhangge on 14-10-22.
  */
-public class View extends View {
+public class View extends android.view.View {
     public View(Context context) {
         this(context, null);
     }
