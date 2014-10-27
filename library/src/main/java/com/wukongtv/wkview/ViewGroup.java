@@ -27,6 +27,7 @@ public abstract class ViewGroup extends android.view.ViewGroup {
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         LayoutParams p =  super.generateLayoutParams(attrs);
-        return LayoutCalculator.resizeLayoutParams(p);
+        LayoutCalculator.resizeLayoutParams(p);
+        return p;
     }
 }

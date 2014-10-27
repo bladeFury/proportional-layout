@@ -49,14 +49,23 @@ public class LayoutCalculator {
         return dimenSize < 0;
     }
 
-    public static ViewGroup.LayoutParams resizeLayoutParams(ViewGroup.LayoutParams p) {
+    public static void resizeLayoutParams(ViewGroup.LayoutParams p) {
         if (!isWrapContentOrMatchParent(p.width)) {
             p.width = getScaledLength(p.width);
         }
         if (!isWrapContentOrMatchParent(p.height)) {
             p.height = getScaledLength(p.height);
         }
-        return p;
+    }
+
+    public static void resizeMarginLayoutParams(ViewGroup.MarginLayoutParams p) {
+        p.leftMargin = getScaledLength(p.leftMargin);
+        p.rightMargin = getScaledLength(p.rightMargin);
+        p.topMargin = getScaledLength(p.topMargin);
+        p.bottomMargin = getScaledLength(p.bottomMargin);
+        // :TODO margin start and margin end
+        //p.setMarginStart(getScaledLength(p.getMarginStart()));
+        //p.setMarginEnd(getScaledLength(p.getMarginEnd()));
     }
 
 }

@@ -24,4 +24,12 @@ public class LinearLayout extends android.widget.LinearLayout {
         LayoutCalculator.resizeView(this);
         setDividerPadding(LayoutCalculator.getScaledLength(getDividerPadding()));
     }
+
+    @Override
+    public LayoutParams generateLayoutParams(AttributeSet attrs) {
+        LayoutParams lp = super.generateLayoutParams(attrs);
+        LayoutCalculator.resizeLayoutParams(lp);
+        LayoutCalculator.resizeMarginLayoutParams(lp);
+        return lp;
+    }
 }
