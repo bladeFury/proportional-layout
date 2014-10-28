@@ -2,33 +2,32 @@ package com.wukongtv.wkwidget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.AbsListView;
 
 import com.wukongtv.global.LC;
 
 /**
- * WKLinearLayout
- * Created by zhangge on 14-10-24.
+ * Created by zhangge on 14-10-28.
  */
-public class LinearLayout extends android.widget.LinearLayout {
-
-    public LinearLayout(Context context) {
+public class ListView extends android.widget.ListView {
+    public ListView(Context context) {
         this(context, null);
     }
 
-    public LinearLayout(Context context, AttributeSet attrs) {
+    public ListView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public LinearLayout(Context context, AttributeSet attrs, int defStyle) {
+    public ListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         LC.resizeView(this);
-        setDividerPadding(LC.getScaledLength(getDividerPadding()));
+        setDividerHeight(LC.getScaledLength(getDividerHeight()));
     }
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         LayoutParams lp = super.generateLayoutParams(attrs);
-        LC.resizeMarginLayoutParams(lp);
+        LC.resizeLayoutParams(lp);
         return lp;
     }
 }

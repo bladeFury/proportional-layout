@@ -3,7 +3,7 @@ package com.wukongtv.wkview;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.wukongtv.global.LayoutCalculator;
+import com.wukongtv.global.LC;
 
 
 /**
@@ -21,7 +21,7 @@ public class View extends android.view.View {
 
     public View(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        LayoutCalculator.resizeView(this);
+        LC.resizeView(this);
     }
 
 }

@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * GlobalLayoutData
+ * LC stands for Layout Calculator
  * Created by zhangge on 14-10-22.
  */
-public class LayoutCalculator {
+public class LC {
 
     public static final int TARGET_WIDTH_IN_DP = 1280;
     public static final int TARGET_HEIGHT_IN_DP = 720;
@@ -17,6 +17,10 @@ public class LayoutCalculator {
     private static int sDivideFactor = 1;
 
     public static int getScaledLength(int length) {
+        return length * sMultipleFactor / sDivideFactor;
+    }
+
+    public static float getScaledLength(float length) {
         return length * sMultipleFactor / sDivideFactor;
     }
 
@@ -59,6 +63,7 @@ public class LayoutCalculator {
     }
 
     public static void resizeMarginLayoutParams(ViewGroup.MarginLayoutParams p) {
+        resizeLayoutParams(p);
         p.leftMargin = getScaledLength(p.leftMargin);
         p.rightMargin = getScaledLength(p.rightMargin);
         p.topMargin = getScaledLength(p.topMargin);

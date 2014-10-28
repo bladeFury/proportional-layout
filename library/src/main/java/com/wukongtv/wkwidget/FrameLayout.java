@@ -6,23 +6,21 @@ import android.util.AttributeSet;
 import com.wukongtv.global.LC;
 
 /**
- * WKLinearLayout
- * Created by zhangge on 14-10-24.
+ * FrameLayout
+ * Created by zhangge on 14-10-28.
  */
-public class LinearLayout extends android.widget.LinearLayout {
-
-    public LinearLayout(Context context) {
+public class FrameLayout extends android.widget.FrameLayout {
+    public FrameLayout(Context context) {
         this(context, null);
     }
 
-    public LinearLayout(Context context, AttributeSet attrs) {
+    public FrameLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public LinearLayout(Context context, AttributeSet attrs, int defStyle) {
+    public FrameLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         LC.resizeView(this);
-        setDividerPadding(LC.getScaledLength(getDividerPadding()));
     }
 
     @Override
