@@ -3,7 +3,6 @@ package com.wukongtv.wkwidget;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.AbsListView;
 
 import com.wukongtv.global.LC;
 
@@ -23,6 +22,7 @@ public class GridView extends android.widget.GridView {
     public GridView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         LC.resizeView(this);
+        // :TODO reflect set these value when < 16
         if (Build.VERSION.SDK_INT >= 16) {
             setColumnWidth(LC.getScaledLength(getColumnWidth()));
             setHorizontalSpacing(LC.getScaledLength(getHorizontalSpacing()));
