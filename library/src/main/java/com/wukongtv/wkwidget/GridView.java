@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 
-import com.wukongtv.global.LC;
+import com.wukongtv.utils.LC;
 
 /**
  * GridView

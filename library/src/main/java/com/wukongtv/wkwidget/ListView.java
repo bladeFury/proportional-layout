@@ -2,9 +2,8 @@ package com.wukongtv.wkwidget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.AbsListView;
 
-import com.wukongtv.global.LC;
+import com.wukongtv.utils.LC;
 
 /**
  * Created by zhangge on 14-10-28.

@@ -3,7 +3,7 @@ package com.wukongtv.wkwidget;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.wukongtv.global.LC;
+import com.wukongtv.utils.LC;
 
 /**
  * FrameLayout

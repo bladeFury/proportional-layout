@@ -2,8 +2,9 @@ package com.wukongtv.wkwidget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 
-import com.wukongtv.global.LC;
+import com.wukongtv.utils.LC;
 
 /**
  * TextView
@@ -24,7 +25,8 @@ public class TextView extends android.widget.TextView {
         LC.resizeView(this);
 
         // textsize
-        setTextSize(LC.getScaledLength(getTextSize()));
+        setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                LC.getScaledLength(getTextSize()));
 
         // drawable padding
         int drawablePadding = LC.getScaledLength(getCompoundDrawablePadding());
