@@ -1,6 +1,7 @@
 package com.wukongtv.wkwidget;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 
 import com.wukongtv.utils.LC;
@@ -22,7 +23,9 @@ public class LinearLayout extends android.widget.LinearLayout {
     public LinearLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         LC.resizeView(this);
-        setDividerPadding(LC.getScaledLength(getDividerPadding()));
+        if (Build.VERSION.SDK_INT >= 14) {
+            setDividerPadding(LC.getScaledLength(getDividerPadding()));
+        }
     }
 
     @Override

@@ -23,15 +23,19 @@ public class TextView extends android.widget.TextView {
     public TextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         LC.resizeView(this);
+        resizeTextView(this);
+    }
 
+    public static void resizeTextView(android.widget.TextView tv) {
         // textsize
-        setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                LC.getScaledLength(getTextSize()));
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                LC.getScaledLength(tv.getTextSize()));
 
         // drawable padding
-        int drawablePadding = LC.getScaledLength(getCompoundDrawablePadding());
-        setCompoundDrawablePadding(drawablePadding);
+        int drawablePadding = LC.getScaledLength(tv.getCompoundDrawablePadding());
+        tv.setCompoundDrawablePadding(drawablePadding);
 
         // :TODO max height
     }
+
 }

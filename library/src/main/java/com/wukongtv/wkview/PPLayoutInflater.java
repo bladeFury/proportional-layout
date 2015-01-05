@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.*;
 import android.view.View;
 
+import com.wukongtv.utils.L;
+
 public class PPLayoutInflater extends LayoutInflater{
 
     private static final String[] sClassPrefixList = {
@@ -46,7 +48,7 @@ public class PPLayoutInflater extends LayoutInflater{
             try {
                 View view = createView(name, prefix, attrs);
                 if (view != null) {
-                    Log.v("PPLayoutInflater", "inflating from custom class : " + prefix + name);
+                    L.d("inflating from custom class : " + prefix + name);
                     return view;
                 }
             } catch (ClassNotFoundException e) {
